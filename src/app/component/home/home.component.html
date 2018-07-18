@@ -1,0 +1,23 @@
+<nav>
+  <div class="nav-wrapper teal darken-2">
+    <a class="brand-logo" style="padding-left: 1%;" [routerLink]="['/']">Araliya Bookshop</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a [routerLink]="['/user']"></a></li>
+      <li><a [routerLink]="['/']">Components</a></li>
+      <li><a [routerLink]="['/user']">User</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="row">
+  <div class="col s12 m12 l8 offset-l2">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+<!--<div class="page-footer teal darken-2">-->
+  <!--<div class="container">-->
+    <!--© 2014 Copyright Text-->
+    <!--<a class="grey-text text-lighten-4 right" href="#!">More Links</a>-->
+  <!--</div>-->
+<!--</div>-->

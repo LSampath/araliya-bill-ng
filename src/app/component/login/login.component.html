@@ -1,0 +1,36 @@
+<div class="row" style="margin-top: 10%;">
+  <div class="col s12 m8 offset-m2 l4 offset-l4">
+    <form action="submit">
+      <div class="card">
+        <div class="card-content">
+          <span class="card-title">WELCOME to Araliya Bookshop</span>
+          <hr>
+
+          <div class="row" style="margin-bottom: 0;">
+            <div class="input-field col s10 offset-s1">
+              <input type="text" id="username" class="validate" autocomplete="off">
+              <label for="username">Username</label>
+            </div>
+          </div>
+          <div class="row" style="margin-bottom: 0;">
+            <div class="input-field col s10 offset-s1">
+              <input type="password" id="password" class="validate" autocomplete="off">
+              <label for="password">Password</label>
+            </div>
+          </div>
+          <div class="row" style="margin-bottom: 0;">
+            <div class="col s10 offset-s1">
+              <button class="btn waves-effect waves-teal" style="width: 100%; margin-top: 5%;" [routerLink]="['/']">LOGIN</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-action row">
+          <div class="col s10 offset-s1">
+            <a style="cursor: pointer;">Forget password?</a>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
