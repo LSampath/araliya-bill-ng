@@ -8,6 +8,14 @@ import { HomeComponent } from './component/home/home.component';
 import { NotFoundComponent } from './component/not-found/not-found.component';
 import {AppRoutesModule} from './app.routes.module';
 import { UserComponent } from './component/user/user.component';
+import { SupplierComponent } from './component/supplier/supplier.component';
+import {AuthService} from './service/auth.service';
+import {FormBuilder, FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {ConfigService} from './service/config.service';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {Router} from '@angular/router';
+import {MaterializeModule} from 'angular2-materialize';
+import {SupplierService} from './service/supplier.service';
 
 
 @NgModule({
@@ -16,13 +24,24 @@ import { UserComponent } from './component/user/user.component';
     LoginComponent,
     HomeComponent,
     NotFoundComponent,
-    UserComponent
+    UserComponent,
+    SupplierComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutesModule
+    AppRoutesModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule,
+    MaterializeModule
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    SupplierService,
+    ConfigService,
+    HttpClient,
+    FormBuilder
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
