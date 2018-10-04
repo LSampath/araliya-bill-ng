@@ -4,4 +4,5 @@ export class Supplier {
   email: string;
   contact: number;
   fax: number;
+  address: string;
 }

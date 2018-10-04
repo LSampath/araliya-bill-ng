@@ -13,9 +13,12 @@ import {AuthService} from './service/auth.service';
 import {FormBuilder, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ConfigService} from './service/config.service';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
-import {Router} from '@angular/router';
 import {MaterializeModule} from 'angular2-materialize';
 import {SupplierService} from './service/supplier.service';
+import {UserService} from './service/user.service';
+import {SupplierDetailsComponent} from './component/supplier-details/supplier-details.component';
+import {InvoiceService} from './service/invoice.service';
+import {NgDatepickerModule} from 'ng2-datepicker';
 
 
 @NgModule({
@@ -25,7 +28,8 @@ import {SupplierService} from './service/supplier.service';
     HomeComponent,
     NotFoundComponent,
     UserComponent,
-    SupplierComponent
+    SupplierComponent,
+    SupplierDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -33,11 +37,14 @@ import {SupplierService} from './service/supplier.service';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    MaterializeModule
+    MaterializeModule,
+    NgDatepickerModule
   ],
   providers: [
     AuthService,
     SupplierService,
+    UserService,
+    InvoiceService,
     ConfigService,
     HttpClient,
     FormBuilder

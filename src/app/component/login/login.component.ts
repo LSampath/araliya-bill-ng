@@ -31,13 +31,14 @@ export class LoginComponent implements OnInit {
       const password = this.authForm.value.password;
       this.authService.authenticateUser(username, password).subscribe(
         (result) => {
-          if (result.value === 'FAILED') {
+          if (result.auth) {
+            console.log('pass');        // proper session management system
+            console.log(result);
+            this.authService.setAccessToken(result.token);
+            this.router.navigate(['/user']);
+          } else {
             console.log('failed');      // clear fields and proper error
             alert('authentication failed');
-          } else {
-            console.log('pass');        // proper session management system
-            this.authService.setAccessToken(result.value);
-            this.router.navigate(['/supplier']);
           }
         },
         (error) => {

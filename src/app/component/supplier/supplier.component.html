@@ -8,7 +8,7 @@
       <li>
         <div class="collapsible-header"><span>Add New Supplier</span></div>
         <div class="collapsible-body">
-          <form [formGroup]="newSupplierForm">
+          <form action="submit" [formGroup]="newSupplierForm" (ngSubmit)="addNewSupplier()">
             <div class="row">
               <div class="input-field col s12">
                 <input type="text" id="name_input" class="validate" name="name" formControlName="name">
@@ -26,8 +26,13 @@
                 <input type="text" id="fax_input" class="validate" formControlName="fax">
                 <label for="fax_input">Fax</label>
               </div>
+              <div class="input-field col s12">
+                <textarea id="address_input" class="validate materialize-textarea" formControlName="address"></textarea>
+                <label for="address_input">Address</label>
+              </div>
               <div class="col s12">
-                <button class="btn waves-effect waves-yellow orange" style="width: 100%; margin-top: 2%;" type="submit" name="action">
+                <button class="btn waves-effect waves-yellow orange" style="width: 100%; margin-top: 2%;"
+                        type="submit" name="action" [disabled]="!newSupplierForm.valid">
                   Add Supplier
                 </button>
               </div>
@@ -38,7 +43,6 @@
     </ul>
     <br>
 
-    <!--supplier table-->
     <p>Existing suppliers. Select a supplier to manage invoices of the supplier.</p>
 
     <table class="highlight centered">
@@ -48,51 +52,20 @@
         <th>Email</th>
         <th>Contact</th>
         <th>Fax</th>
+        <th>Address</th>
       </tr>
       </thead>
 
       <tbody>
-      <tr *ngFor="let s of suppliers" style="cursor: pointer" (click)="loadEditSupplierDiv()">
+      <tr *ngFor="let s of suppliers; index as i" style="cursor: pointer" (click)="router.navigate(['/supplier/' + s.supplier_id]);">
         <td>{{s.name}}</td>
         <td>{{s.email}}</td>
         <td>{{s.contact}}</td>
         <td>{{s.fax}}</td>
+        <td>{{s.address}}</td>
       </tr>
       </tbody>
     </table>
     <br>
-
-    <ul class="collapsible" materialize="collapsible" *ngIf="editSupplierVisible">
-      <li>
-        <div class="collapsible-header"><span>Add New Supplier</span></div>
-        <div class="collapsible-body">
-          <form [formGroup]="editSupplierForm">
-            <div class="row">
-              <div class="input-field col s12">
-                <input type="text" id="name_edit" class="validate" name="name" formControlName="name">
-                <label for="name_edit">Name</label>
-              </div>
-              <div class="input-field col s12">
-                <input type="text" id="email_edit" class="validate" formControlName="email">
-                <label for="email_edit">Email</label>
-              </div>
-              <div class="input-field col s12 m6">
-                <input type="text" id="contact_edit" class="validate" formControlName="contact">
-                <label for="contact_edit">Contact</label>
-              </div>
-              <div class="input-field col s12 m6">
-                <input type="text" id="fax_edit" class="validate" formControlName="fax">
-                <label for="fax_edit">Fax</label>
-              </div>
-              <div class="col s12">
-                <button class="btn waves-effect waves-yellow orange" style="width: 100%; margin-top: 2%;" type="submit" name="action">
-                  Add Supplier
-                </button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </li>
-    </ul>
   </div>
 </div>

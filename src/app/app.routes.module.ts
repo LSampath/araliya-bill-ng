@@ -5,6 +5,7 @@ import {NotFoundComponent} from './component/not-found/not-found.component';
 import {RouterModule, Routes} from '@angular/router';
 import {UserComponent} from './component/user/user.component';
 import {SupplierComponent} from './component/supplier/supplier.component';
+import {SupplierDetailsComponent} from './component/supplier-details/supplier-details.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent, children: [
@@ -12,6 +13,7 @@ const routes: Routes = [
       // {path: 'invoice/:no', component: InvoicedetailComponent},
       // {path: 'statistic', component: StaticsComponent},
       {path: 'supplier', component: SupplierComponent},
+      {path: 'supplier/:supplier_id', component: SupplierDetailsComponent},
       {path: 'user', component: UserComponent},
       // {path: 'user/:id', component: UserdetailComponent},
       // {path: 'expense', component: ExpanceComponent}

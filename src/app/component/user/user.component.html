@@ -10,7 +10,7 @@
     <table class="highlight centered">
       <thead>
       <tr>
-        <th>User ID</th>
+        <th>ID</th>
         <th>User name</th>
         <th>Full name</th>
         <th>Email</th>
@@ -18,56 +18,45 @@
       </thead>
 
       <tbody>
-      <tr>
-        <td>00021</td>
-        <td>Eclair</td>
-        <td>Brendon McCullum</td>
-        <td>brendon.mc@gmail.com</td>
-      </tr>
-      <tr>
-        <td>00021</td>
-        <td>Eclair</td>
-        <td>Brendon McCullum</td>
-        <td>brendon.mc@gmail.com</td>
-      </tr>
-      <tr>
-        <td>00021</td>
-        <td>Eclair</td>
-        <td>Brendon McCullum</td>
-        <td>brendon.mc@gmail.com</td>
+      <tr *ngFor="let user of users">
+        <td>{{user.user_id}}</td>
+        <td>{{user.user_name}}</td>
+        <td>{{user.full_name}}</td>
+        <td>{{user.email}}</td>
       </tr>
       </tbody>
     </table>
     <br>
 
-    <ul class="collapsible">
+    <ul class="collapsible"materialize="collapsible">
       <li>
-        <div class="collapsible-header"><span>Profile | <b>Lahiru Sampath Vithanage</b></span></div>
+        <div class="collapsible-header"><span>Profile | <b>{{fullName}}</b></span></div>
         <div class="collapsible-body">
-          <form>
+          <form action="submit" [formGroup]="currentUserForm" (ngSubmit)="updateCurrentUser()">
             <div class="row">
               <div class="input-field col s12 m6">
-                <input type="text" id="user_name_input" class="validate">
+                <input type="text" id="user_name_input" class="validate" formControlName="userName" >
                 <label for="user_name_input">User name</label>
               </div>
               <div class="input-field col s12">
-                <input type="text" id="full_name_input" class="validate">
+                <input type="text" id="full_name_input" class="validate" formControlName="fullName">
                 <label for="full_name_input">Full name</label>
               </div>
               <div class="input-field col s12">
-                <input type="text" id="email_input" class="validate">
+                <input type="email" id="email_input" class="validate" formControlName="email">
                 <label for="email_input">Email</label>
               </div>
               <div class="input-field col s12 m6">
-                <input type="text" id="password_input" class="validate">
-                <label for="password_input">Password</label>
+                <input type="password" id="password_input" class="validate" formControlName="password">
+                <label for="password_input">New Password</label>
               </div>
               <div class="input-field col s12 m6">
-                <input type="text" id="confirm_password_input" class="validate">
+                <input type="password" id="confirm_password_input" class="validate" formControlName="confirm">
                 <label for="confirm_password_input">Confirm password</label>
               </div>
               <div class="col s12">
-                <button class="btn waves-effect waves-light" style="width: 100%; margin-top: 2%;" type="submit" name="action">
+                <button class="btn waves-effect waves-light" style="width: 100%; margin-top: 2%;"
+                        type="submit" name="action" [disabled]="!currentUserForm.valid">
                   Update Details
                 </button>
               </div>
@@ -77,34 +66,35 @@
       </li>
     </ul>
 
-    <ul class="collapsible">
+    <ul class="collapsible"materialize="collapsible">
       <li>
         <div class="collapsible-header"><span>Add New User</span></div>
         <div class="collapsible-body">
-          <form>
+          <form action="submit" [formGroup]="newUserForm" (ngSubmit)="addNewUser()">
             <div class="row">
               <div class="input-field col s12 m6">
-                <input type="text" id="user_name_new" class="validate">
-                <label for="user_name_new">User name</label>
+                <input type="text" id="new_user_name_input" class="validate" formControlName="userName">
+                <label for="new_user_name_input">User name</label>
               </div>
               <div class="input-field col s12">
-                <input type="text" id="full_name_new" class="validate">
-                <label for="full_name_new">Full name</label>
+                <input type="text" id="new_full_name_input" class="validate" formControlName="fullName">
+                <label for="new_full_name_input">Full name</label>
               </div>
               <div class="input-field col s12">
-                <input type="text" id="email_new" class="validate">
-                <label for="email_new">Email</label>
+                <input type="email" id="new_email_input" class="validate" formControlName="email">
+                <label for="new_email_input">Email</label>
               </div>
               <div class="input-field col s12 m6">
-                <input type="text" id="password_new" class="validate">
-                <label for="password_new">Password</label>
+                <input type="password" id="new_password_input" class="validate" formControlName="password">
+                <label for="new_password_input">Password</label>
               </div>
               <div class="input-field col s12 m6">
-                <input type="text" id="confirm_password_new" class="validate">
-                <label for="confirm_password_new">Confirm password</label>
+                <input type="password" id="new_confirm_input" class="validate" formControlName="confirm">
+                <label for="new_confirm_input">Confirm password</label>
               </div>
               <div class="col s12">
-                <button class="btn waves-effect orange waves-yellow" style="width: 100%; margin-top: 2%;" type="submit" name="action">
+                <button class="btn waves-effect orange waves-yellow" style="width: 100%; margin-top: 2%;"
+                        type="submit" name="action" [disabled]="!newUserForm.valid">
                   Add User
                 </button>
               </div>
