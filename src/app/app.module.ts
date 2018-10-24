@@ -18,7 +18,10 @@ import {SupplierService} from './service/supplier.service';
 import {UserService} from './service/user.service';
 import {SupplierDetailsComponent} from './component/supplier-details/supplier-details.component';
 import {InvoiceService} from './service/invoice.service';
-import {NgDatepickerModule} from 'ng2-datepicker';
+import { ExpenseComponent } from './component/expense/expense.component';
+import {MzCollectionModule, MzDatepickerModule, MzInputModule, MzSelectModule, MzValidationModule} from 'ngx-materialize';
+import { InvoiceComponent } from './component/invoice/invoice.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -29,7 +32,9 @@ import {NgDatepickerModule} from 'ng2-datepicker';
     NotFoundComponent,
     UserComponent,
     SupplierComponent,
-    SupplierDetailsComponent
+    SupplierDetailsComponent,
+    ExpenseComponent,
+    InvoiceComponent
   ],
   imports: [
     BrowserModule,
@@ -37,8 +42,13 @@ import {NgDatepickerModule} from 'ng2-datepicker';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
     MaterializeModule,
-    NgDatepickerModule
+    MzDatepickerModule,
+    MzInputModule,
+    MzSelectModule,
+    MzValidationModule,
+    MzCollectionModule
   ],
   providers: [
     AuthService,

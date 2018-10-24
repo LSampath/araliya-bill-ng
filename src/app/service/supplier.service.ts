@@ -15,7 +15,7 @@ export class SupplierService {
     return this.http.get(url);
   }
 
-  getSupplier(supplier_id: string): Observable<any> {
+  getSupplier(supplier_id: number): Observable<any> {
     const url = this.config.baseURL + '/supplier/' + supplier_id;
     const options = {
       headers: new HttpHeaders({

@@ -6,14 +6,13 @@ import {RouterModule, Routes} from '@angular/router';
 import {UserComponent} from './component/user/user.component';
 import {SupplierComponent} from './component/supplier/supplier.component';
 import {SupplierDetailsComponent} from './component/supplier-details/supplier-details.component';
+import {InvoiceComponent} from './component/invoice/invoice.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent, children: [
-      // {path: 'invoice', component: InvoiceComponent},
-      // {path: 'invoice/:no', component: InvoicedetailComponent},
-      // {path: 'statistic', component: StaticsComponent},
       {path: 'supplier', component: SupplierComponent},
       {path: 'supplier/:supplier_id', component: SupplierDetailsComponent},
+      {path: 'supplier/:supplier_id/invoice/:invoice_id', component: InvoiceComponent},
       {path: 'user', component: UserComponent},
       // {path: 'user/:id', component: UserdetailComponent},
       // {path: 'expense', component: ExpanceComponent}
